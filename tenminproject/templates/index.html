@@ -1,0 +1,763 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flipkart 10Min | Online Shopping</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f1f3f6;
+    color: #222;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #172b75;
+    color: white;
+    padding: 17px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #ffd700;
+}
+
+.search {
+    display: flex;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 480px;
+    flex: 1;
+}
+
+.search input {
+    padding: 13px;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.search button {
+    background: #ffd700;
+    border: none;
+    padding: 0 18px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* CATEGORIES */
+.categories {
+    background: white;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px #0001;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* BANNER */
+.banner {
+    margin: 22px auto;
+    width: 92%;
+    min-height: 190px;
+    background: linear-gradient(110deg, #172b75, #2874f0);
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px 6%;
+}
+
+.banner h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.banner p {
+    color: #e4eaff;
+}
+
+.banner-icon {
+    font-size: 75px;
+}
+
+/* CATEGORY CARDS */
+.section {
+    margin: 25px auto;
+    width: 92%;
+}
+
+.section-title {
+    font-size: 23px;
+    margin-bottom: 18px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.category-card {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px #0002;
+}
+
+.category-card img {
+    width: 100%;
+    height: 105px;
+    object-fit: contain;
+}
+
+.category-card h3 {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* PRODUCT GRID */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px #0002;
+}
+
+.product-card img {
+    width: 100%;
+    height: 145px;
+    object-fit: contain;
+}
+
+.discount {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #e5f8e9;
+    color: #16843c;
+    padding: 5px 8px;
+    font-size: 11px;
+    border-radius: 4px;
+}
+
+.product-card h3 {
+    font-size: 15px;
+    margin: 12px 0;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #172b75;
+}
+
+.old-price {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.product-card p {
+    color: #777;
+    font-size: 12px;
+    margin: 8px 0;
+}
+
+.add-btn {
+    background: #ffd700;
+    border: none;
+    width: 100%;
+    padding: 11px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background: #f3c800;
+}
+
+/* CART */
+.cart-info {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px auto;
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.cart-info h3 {
+    color: #172b75;
+}
+
+.checkout-btn {
+    background: #172b75;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background: #172b75;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+@media(max-width: 950px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .search {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .banner h1 {
+        font-size: 23px;
+    }
+
+    .banner-icon {
+        font-size: 45px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories {
+        gap: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">Flipkart <span>10Min</span></div>
+
+    <form class="search" onsubmit="searchProducts(event)">
+        <input id="searchInput" type="text"
+        placeholder="Search for products...">
+        <button type="submit">🔍</button>
+    </form>
+
+    <div class="nav-links">
+        <a href="#">Login</a>
+        <a href="#cart">🛒 Cart (<span id="cartCount">0</span>)</a>
+    </div>
+
+</nav>
+
+<!-- CATEGORY NAVIGATION -->
+<div class="categories">
+    <a href="#grocery">🥦 Grocery</a>
+    <a href="#fruits">🍎 Fruits</a>
+    <a href="#vegetables">🥕 Vegetables</a>
+    <a href="#electronics">📱 Electronics</a>
+    <a href="#fashion">👕 Fashion</a>
+</div>
+
+<!-- BANNER -->
+<section class="banner">
+    <div>
+        <h1>Shopping made faster!</h1>
+        <p>Your daily essentials delivered in just 10 minutes.</p>
+        <br>
+        <p>Fresh products. Best prices. Quick delivery.</p>
+    </div>
+    <div class="banner-icon">🛵</div>
+</section>
+
+<!-- CATEGORY SECTION -->
+<section class="section">
+
+    <h2 class="section-title">Shop by Category</h2>
+
+    <div class="category-grid">
+
+        <div class="category-card" onclick="goTo('grocery')">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=300">
+            <h3>Grocery</h3>
+        </div>
+
+        <div class="category-card" onclick="goTo('fruits')">
+            <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=300">
+            <h3>Fresh Fruits</h3>
+        </div>
+
+        <div class="category-card" onclick="goTo('vegetables')">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300">
+            <h3>Vegetables</h3>
+        </div>
+
+        <div class="category-card" onclick="goTo('electronics')">
+            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300">
+            <h3>Electronics</h3>
+        </div>
+
+        <div class="category-card" onclick="goTo('fashion')">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=300">
+            <h3>Fashion</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<div id="products">
+
+    <section class="section" id="grocery">
+        <h2 class="section-title">🥦 Grocery Essentials</h2>
+        <div class="product-grid">
+
+            <div class="product-card" data-name="Rice">
+                <span class="discount">10% OFF</span>
+                <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400">
+                <h3>Premium Rice 1kg</h3>
+                <div class="price">₹90 <span class="old-price">₹100</span></div>
+                <p>1 kg pack</p>
+                <button class="add-btn" onclick="addToCart('Premium Rice',90)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Milk">
+                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400">
+                <h3>Fresh Milk</h3>
+                <div class="price">₹30 <span class="old-price">₹35</span></div>
+                <p>500 ml</p>
+                <button class="add-btn" onclick="addToCart('Fresh Milk',30)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Oil">
+                <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400">
+                <h3>Cooking Oil</h3>
+                <div class="price">₹140</div>
+                <p>1 litre</p>
+                <button class="add-btn" onclick="addToCart('Cooking Oil',140)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Bread">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400">
+                <h3>Fresh Bread</h3>
+                <div class="price">₹40</div>
+                <p>400 g</p>
+                <button class="add-btn" onclick="addToCart('Fresh Bread',40)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Eggs">
+                <img src="https://images.unsplash.com/photo-1518569656558-1f25e69d93d7?w=400">
+                <h3>Farm Eggs</h3>
+                <div class="price">₹75</div>
+                <p>6 pieces</p>
+                <button class="add-btn" onclick="addToCart('Farm Eggs',75)">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="fruits">
+        <h2 class="section-title">🍎 Fresh Fruits</h2>
+        <div class="product-grid">
+
+            <div class="product-card" data-name="Apple">
+                <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400">
+                <h3>Fresh Apples</h3>
+                <div class="price">₹120</div>
+                <p>1 kg</p>
+                <button class="add-btn" onclick="addToCart('Fresh Apples',120)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Banana">
+                <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400">
+                <h3>Banana</h3>
+                <div class="price">₹50</div>
+                <p>1 dozen</p>
+                <button class="add-btn" onclick="addToCart('Banana',50)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Orange">
+                <img src="https://images.unsplash.com/photo-1547514701-42782101795e?w=400">
+                <h3>Oranges</h3>
+                <div class="price">₹80</div>
+                <p>1 kg</p>
+                <button class="add-btn" onclick="addToCart('Oranges',80)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Grapes">
+                <img src="https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=400">
+                <h3>Fresh Grapes</h3>
+                <div class="price">₹90</div>
+                <p>500 g</p>
+                <button class="add-btn" onclick="addToCart('Fresh Grapes',90)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Mango">
+                <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=400">
+                <h3>Sweet Mango</h3>
+                <div class="price">₹100</div>
+                <p>1 kg</p>
+                <button class="add-btn" onclick="addToCart('Sweet Mango',100)">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="vegetables">
+        <h2 class="section-title">🥕 Fresh Vegetables</h2>
+        <div class="product-grid">
+
+            <div class="product-card" data-name="Tomato">
+                <img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400">
+                <h3>Tomatoes</h3>
+                <div class="price">₹30</div>
+                <p>1 kg</p>
+                <button class="add-btn" onclick="addToCart('Tomatoes',30)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Potato">
+                <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400">
+                <h3>Potatoes</h3>
+                <div class="price">₹35</div>
+                <p>1 kg</p>
+                <button class="add-btn" onclick="addToCart('Potatoes',35)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Carrot">
+                <img src="https://images.unsplash.com/photo-1445282768818-728615cc910a?w=400">
+                <h3>Carrots</h3>
+                <div class="price">₹45</div>
+                <p>500 g</p>
+                <button class="add-btn" onclick="addToCart('Carrots',45)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Onion">
+                <img src="https://images.unsplash.com/photo-1508747703725-719777637510?w=400">
+                <h3>Onions</h3>
+                <div class="price">₹40</div>
+                <p>1 kg</p>
+                <button class="add-btn" onclick="addToCart('Onions',40)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Broccoli">
+                <img src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400">
+                <h3>Broccoli</h3>
+                <div class="price">₹60</div>
+                <p>500 g</p>
+                <button class="add-btn" onclick="addToCart('Broccoli',60)">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="electronics">
+        <h2 class="section-title">📱 Electronics</h2>
+        <div class="product-grid">
+
+            <div class="product-card" data-name="Headphones">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400">
+                <h3>Wireless Headphones</h3>
+                <div class="price">₹999</div>
+                <p>Bluetooth</p>
+                <button class="add-btn" onclick="addToCart('Headphones',999)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Smart Watch">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+                <h3>Smart Watch</h3>
+                <div class="price">₹1499</div>
+                <p>Digital watch</p>
+                <button class="add-btn" onclick="addToCart('Smart Watch',1499)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Speaker">
+                <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400">
+                <h3>Bluetooth Speaker</h3>
+                <div class="price">₹799</div>
+                <p>Portable speaker</p>
+                <button class="add-btn" onclick="addToCart('Bluetooth Speaker',799)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Camera">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400">
+                <h3>Digital Camera</h3>
+                <div class="price">₹5999</div>
+                <p>Digital camera</p>
+                <button class="add-btn" onclick="addToCart('Digital Camera',5999)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Keyboard">
+                <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400">
+                <h3>Wireless Keyboard</h3>
+                <div class="price">₹699</div>
+                <p>Computer accessory</p>
+                <button class="add-btn" onclick="addToCart('Wireless Keyboard',699)">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="fashion">
+        <h2 class="section-title">👕 Fashion</h2>
+        <div class="product-grid">
+
+            <div class="product-card" data-name="T Shirt">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
+                <h3>Classic T-Shirt</h3>
+                <div class="price">₹399</div>
+                <p>Casual wear</p>
+                <button class="add-btn" onclick="addToCart('Classic T-Shirt',399)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Shoes">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400">
+                <h3>Sports Shoes</h3>
+                <div class="price">₹899</div>
+                <p>Comfortable shoes</p>
+                <button class="add-btn" onclick="addToCart('Sports Shoes',899)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Handbag">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400">
+                <h3>Handbag</h3>
+                <div class="price">₹799</div>
+                <p>Fashion accessory</p>
+                <button class="add-btn" onclick="addToCart('Handbag',799)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Watch">
+                <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400">
+                <h3>Classic Watch</h3>
+                <div class="price">₹1199</div>
+                <p>Fashion watch</p>
+                <button class="add-btn" onclick="addToCart('Classic Watch',1199)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="Sunglasses">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400">
+                <h3>Sunglasses</h3>
+                <div class="price">₹499</div>
+                <p>UV protection</p>
+                <button class="add-btn" onclick="addToCart('Sunglasses',499)">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- CART SUMMARY -->
+<section class="cart-info" id="cart">
+    <div>
+        <h3>🛒 Your Shopping Cart</h3>
+        <p id="cartDetails">0 items added</p>
+        <h3 id="cartTotal">Total: ₹0</h3>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">
+        Proceed to Checkout
+    </button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>Flipkart 10Min</h2>
+    <p>Fast shopping. Happy living.</p>
+    <br>
+    <p>© 2026 Flipkart 10Min. Demo project.</p>
+</footer>
+
+<script>
+
+// Load cart from browser storage
+let cart = JSON.parse(localStorage.getItem("flipkartCart")) || [];
+
+function updateCart() {
+
+    let count = 0;
+    let total = 0;
+
+    cart.forEach(item => {
+        count += item.quantity;
+        total += item.price * item.quantity;
+    });
+
+    document.getElementById("cartCount").innerText = count;
+    document.getElementById("cartDetails").innerText =
+        count + " items added";
+
+    document.getElementById("cartTotal").innerText =
+        "Total: ₹" + total;
+
+    localStorage.setItem("flipkartCart", JSON.stringify(cart));
+}
+
+// Add product to cart
+function addToCart(name, price) {
+
+    let existing = cart.find(item => item.name === name);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    updateCart();
+    alert(name + " added to cart!");
+}
+
+// Search products
+function searchProducts(event) {
+
+    event.preventDefault();
+
+    let search = document.getElementById("searchInput")
+        .value.toLowerCase().trim();
+
+    let cards = document.querySelectorAll(".product-card");
+    let found = false;
+
+    cards.forEach(card => {
+
+        let name = card.innerText.toLowerCase();
+
+        if (name.includes(search)) {
+            card.style.display = search === "" ? "block" : "block";
+            found = true;
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+    if (!found) {
+        alert("No products found!");
+    }
+}
+
+// Category navigation
+function goTo(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// Checkout demonstration
+function checkout() {
+
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+    } else {
+        alert("Your order total is ₹" +
+            cart.reduce((sum, item) =>
+                sum + item.price * item.quantity, 0));
+    }
+}
+
+// Initial cart update
+updateCart();
+
+</script>
+
+</body>
+</html>
